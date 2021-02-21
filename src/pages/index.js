@@ -1,4 +1,5 @@
 import React from "react"
+import {navigate} from 'gatsby'
 import { Formik, Form, Field, ErrorMessage} from 'formik'
 
 const encode = (data) => {
@@ -23,13 +24,14 @@ export default function Home() {
             body: encode({ "form-name": "contact-form", ...values })
           })
           .then(() => {
-            alert('Success');
+            // alert('Success');
             actions.resetForm()
+            navigate('/thanks/')
           })
           .catch(() => {
             alert('Error');
           })
-          .finally(() => actions.setSubmitting(false))
+          // .finally(() => actions.setSubmitting(false))
         }
       }
       validate={values => {
