@@ -1,11 +1,27 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
+
 function ReactHookForm() {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(data)
+    })
+      .then(() => navigate("/thanks/"))
+      .catch(() => console.log("お問い合わせに失敗しました"));
+  };
+  // const onSubmit = data => console.log(data);
 
-  console.log(watch("name"));
+  // console.log(watch("name"));
   return (
     <form
       name="contact-form"
