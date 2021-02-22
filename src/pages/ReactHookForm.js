@@ -15,7 +15,7 @@ function ReactHookForm() {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(data)
+      body: encode({"form-name": "contact-form",...data})
     })
       .then(() => navigate("/thanks/"))
       .catch(() => console.log("お問い合わせに失敗しました"));
