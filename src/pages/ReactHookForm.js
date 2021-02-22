@@ -7,7 +7,14 @@ function ReactHookForm() {
 
   console.log(watch("name"));
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      name="contact-form"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit(onSubmit)}
+      >
+      <input type="hidden" name="form-name" />
+      <input type="hidden" name="bot-field" />
       <div>
         <label htmlFor="name">お名前</label>
         <input name="name" ref={register({ required: true})} />
