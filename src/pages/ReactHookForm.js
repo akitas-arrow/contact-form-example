@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import {navigate} from 'gatsby'
 
 const encode = (data) => {
   return Object.keys(data)
