@@ -29,6 +29,7 @@ function ReactHookForm() {
       >
       <input type="hidden" name="form-name" />
       <input type="hidden" name="bot-field" />
+      <input type="hidden" name="subject" value="お問い合わせがありました" />
       <div>
         <label>
           お名前
